@@ -13,7 +13,7 @@ export interface Repository {
 
   export const getLatestRepositories = async (username: string): Promise<Repository[]> => {
     const githubToken = import.meta.env.VITE_GITHUB_TOKEN;
-  
+    
     try {
       console.log('Fetching repositories from GitHub API...');
       
@@ -29,7 +29,8 @@ export interface Repository {
           'Authorization': `Bearer ${githubToken}`,
         },
       });
-  
+      
+      console.log(response.data)
       if (response.status === 403) {
         console.warn('GitHub API rate limit exceeded, using mock data');
         return mockProjects;
