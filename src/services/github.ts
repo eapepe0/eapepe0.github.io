@@ -30,7 +30,7 @@ export interface Repository {
         },
       });
       
-      console.log(response.data)
+      /* console.log(response.data) */
       if (response.status === 403) {
         console.warn('GitHub API rate limit exceeded, using mock data');
         return mockProjects;
