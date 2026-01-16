@@ -123,7 +123,13 @@ export const Contact = () => {
               )}
             </div>
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                cursor: "pointer",
+              }}
+    
               type="submit"
               disabled={formStatus.loading}
               className={`w-full px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors ${
@@ -134,7 +140,7 @@ export const Contact = () => {
             >
               {formStatus.loading ? t('sending') : t('sendMessage')}
               <Send size={20} />
-            </button>
+            </motion.button>
 
             {formStatus.success && (
               <p className="text-green-500 text-center mt-4">{t('successMessage')}</p>
